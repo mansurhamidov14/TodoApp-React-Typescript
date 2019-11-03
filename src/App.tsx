@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {ChangeEvent} from 'react';
+import './App.scss';
+import {Alert, Container, Row, TextInput} from "./components";
+import {alertTypes} from "./components/Alert/models";
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const [name, setName] = React.useState('');
+    const [isAlertVisible, setAlertVisibility] = React.useState(false);
+
+    const setter = (set: ((value: string) => void)) => (event: ChangeEvent<HTMLInputElement>) => {
+        const {
+            target: {
+                value
+            }
+        } = event;
+
+        set(value);
+    };
+
+    const toggleAlertVisibility: (() => void) = () => {
+        setAlertVisibility(!isAlertVisible)
+    };
+
+    return (
+        <div className="App">
+            <Container>
+                <Row>
+                    <button onClick={() => setAlertVisibility(true)}>
+                        show alert
+                    </button>
+                    <h1>Hello world</h1>
+                    <TextInput
+                        type={'text'}
+                        onChange={setter(setName)}
+                        value={name}
+                    />
+                    <Alert
+                        isVisible={isAlertVisible}
+                        title="This is primary alert title"
+                        message="This is primary alert message"
+                        type={alertTypes.danger}
+                        onClose={() => toggleAlertVisibility()}
+                    />
+                    <h1>Hello, {name}</h1>
+                </Row>
+
+            </Container>
+        </div>
+    );
+};
 
 export default App;

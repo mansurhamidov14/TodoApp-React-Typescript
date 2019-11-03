@@ -1,0 +1,10 @@
+@import '../../assets/styles/variables';
+
+.row {
+  display:-ms-flexbox;
+  display:flex;
+  -ms-flex-wrap:wrap;
+  flex-wrap:wrap;
+  margin-left: -$primary-horizontal-indention;
+  margin-right: -$primary-horizontal-indention;
+}
