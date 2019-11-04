@@ -1,19 +1,5 @@
 @import '../../assets/styles/variables.scss';
 
-$light_text_alert_types: (
-        primary:    $primary,
-        success:    $success,
-        info:       $info,
-        danger:     $danger,
-        secondary:  $secondary,
-        warning:    $warning,
-        dark:       $dark
-);
-
-$dark_text_alert_types: (
-        light:      $light
-);
-
 .alert {
   width: 300px;
   display: none;
@@ -23,6 +9,7 @@ $dark_text_alert_types: (
   top: 15px;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  padding-right: 40px;
 
   &__visible {
     display: block;
@@ -33,7 +20,7 @@ $dark_text_alert_types: (
   }
 
   &__close_btn {
-    background: rgba(45, 45, 45, 0.2);
+    background: rgba(45, 45, 45, 0.15);
     float: right;
     border: 0;
     font-size: 12px;
@@ -48,6 +35,7 @@ $dark_text_alert_types: (
     &:active {
       outline: 0;
       color: #353A40;
+      background: rgba(45, 45, 45, 0.3);
     }
   }
 
@@ -61,13 +49,13 @@ $dark_text_alert_types: (
     margin: 0;
     font-size: 0.85em;
   }
-  @each $type, $color in $light_text_alert_types {
+  @each $type, $color in $light_text_bg_types {
     &-#{$type} {
       background-color: $color;
       color: #FFFFFF;
     }
   }
-  @each $type, $color in $dark_text_alert_types {
+  @each $type, $color in $dark_text_bg_types {
     &-#{$type} {
       background-color: $color;
       color: #353A40;

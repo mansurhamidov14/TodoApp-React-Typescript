@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface IColProps {
-    size?: number;
+    xs?: number;
     sm?: number;
     md?: number;
     lg?: number;

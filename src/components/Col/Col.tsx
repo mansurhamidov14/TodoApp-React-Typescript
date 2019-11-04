@@ -5,13 +5,13 @@ import { IColProps } from "./models";
 export const Col = (props: IColProps) => {
     const {
         children,
-        size = 12,
+        xs = 12,
         xl,
         lg,
         md,
         sm
     } = props;
-    const classNames: string[] = [styles[`col-${size}`]];
+    const classNames: string[] = [styles[`col-${xs}`]];
     if (sm) {
         classNames.push(styles[`col-sm-${sm}`]);
     }

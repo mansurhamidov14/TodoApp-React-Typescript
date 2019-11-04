@@ -1,0 +1,37 @@
+@import '../../assets/styles/variables.scss';
+
+.text_input {
+    padding: 7px 10px;
+    position: relative;
+    &__input {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid #DEDEDE;
+        font-size: 1em;
+        z-index: 1;
+        margin-top: 20px;
+        outline: 0;
+        padding-bottom: 3px;
+        transition: 0.4s;
+        background: transparent;
+    }
+
+    &__input + &__label {
+        z-index: -1;
+        position: relative;
+        top: -25px;
+        color: #666;
+    }
+
+    &__input:focus + &__label, &__input.filled + &__label {
+        display: block;
+        transition: 0.4s;
+        top: -40px;
+        font-size: 0.75em;
+        font-weight: bold;
+    }
+    &__input:focus + &__label {
+        color: $primary;
+    }
+}
+

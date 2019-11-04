@@ -7,4 +7,6 @@ export interface ITextInputProps {
     type: 'text' | 'email' | 'number';
     value: string;
     className?: string | undefined;
+    label?: string;
+    id: string;
 }

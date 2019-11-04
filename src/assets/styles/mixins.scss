@@ -1,0 +1,5 @@
+@mixin alignText ($property) {
+  .text-#{$property} {
+    text-align: $property
+  }
+}

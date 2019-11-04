@@ -1,7 +1,8 @@
 import React, {ChangeEvent} from 'react';
 import './App.scss';
-import {Alert, Col, Container, Row, TextInput, Button} from "./components";
+import {Alert, Col, Container, Row, TextInput, Button, Block} from "./components";
 import {colorVariants} from "./enums/colorVariants";
+import {indentionSizes} from "./enums/indentionSizes";
 
 const App: React.FC = () => {
     const [name, setName] = React.useState('');
@@ -24,30 +25,34 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <Container>
-                <button onClick={() => setAlertVisibility(true)}>
-                    show alert
-                </button>
-                <Row>
-                    
-                    <h1>Hello world</h1>
-                    <TextInput
-                        type={'text'}
-                        onChange={setter(setName)}
-                        value={name}
-                    />
-                    <Alert
-                        isVisible={isAlertVisible}
-                        title="This is primary alert title"
-                        message="This is primary alert message"
-                        variant={colorVariants.warning}
-                        onClose={() => toggleAlertVisibility()}
-                    />
-                    <h1>Hello, {name}</h1>
-                    <Col size={9} sm={8} md={5} lg={3} xl={12}>
-                        <Button variant={colorVariants.warning} title={"button"}/>
-                    </Col>
-                </Row>
-
+                <Alert
+                    isVisible={isAlertVisible}
+                    onClose={() => setAlertVisibility(false)}
+                    variant={colorVariants.success}
+                    title="This is success alert heading"
+                    message="This is success alert description. Please be aware of it"
+                />
+                <Container>
+                    <Row>
+                        <Col xs={12}>
+                            <Block bg={colorVariants.primary} paddingVertical={indentionSizes.X6}/>
+                        </Col>
+                        <Col xs={6}>
+                            <Block bg={colorVariants.danger} paddingVertical={indentionSizes.X6}/>
+                        </Col>
+                        <Col xs={6}>
+                            <Block bg={colorVariants.warning} paddingVertical={indentionSizes.X6}/>
+                        </Col>
+                        <Col xs={12}>
+                            <Block bg={colorVariants.light} paddingVertical={indentionSizes.X6} textAlign="center">
+                                <Button title="Show alert" onClick={() => toggleAlertVisibility()} variant={colorVariants.success}/>
+                            </Block>
+                        </Col>
+                        <Col xs={4}>
+                            <TextInput onChange={setter(setName)} value={name} type="text" id="name" label="Ad"/>
+                        </Col>
+                    </Row>
+                </Container>
             </Container>
         </div>
     );

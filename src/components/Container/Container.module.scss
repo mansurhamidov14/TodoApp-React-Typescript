@@ -1,6 +1,5 @@
 @import '../../assets/styles/variables.scss';
-
-.container {
+.container, .container-fluid {
   width: $full-width;
   padding-left: $primary-horizontal-indention;
   padding-right: $primary-horizontal-indention;

@@ -5,5 +5,6 @@ export enum colorVariants {
     primary = 'primary',
     warning = 'warning',
     light = 'light',
-    dark = 'dark'
+    dark = 'dark',
+    white = 'white'
 }

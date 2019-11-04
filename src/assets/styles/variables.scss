@@ -10,8 +10,7 @@ $container-max-width-xl: 1140px;
 $container-max-width-lg: 960px;
 $container-max-width-md: 720px;
 $container-max-width-sm: 540px;
-$primary-horizontal-indention: 12px;
-
+$primary-horizontal-indention: 10px;
 
 //colors
 $primary: #2E7FF7;
@@ -22,3 +21,19 @@ $secondary: #6E757C;
 $dark: #353A40;
 $warning: #F99810;
 $light: #F8F9FA;
+$white: #FFFFFF;
+
+$light_text_bg_types: (
+        primary:    $primary,
+        success:    $success,
+        info:       $info,
+        danger:     $danger,
+        secondary:  $secondary,
+        warning:    $warning,
+        dark:       $dark
+);
+
+$dark_text_bg_types: (
+        light:      $light,
+        white:      $white
+);
