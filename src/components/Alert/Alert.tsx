@@ -8,9 +8,9 @@ export function Alert (props: IAlertProps) {
         message,
         onClose,
         title,
-        type,
+        variant,
     } = props;
-    const classNames:Array<string> = [styles.alert, styles[`alert-${type}`]];
+    const classNames:Array<string> = [styles.alert, styles[`alert-${variant}`]];
     if (isVisible) {
         classNames.push(styles.alert__visible);
     }

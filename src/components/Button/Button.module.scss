@@ -1,0 +1,56 @@
+@import "../../assets/styles/variables";
+
+$light_text_alert_types: (
+        primary:    $primary,
+        success:    $success,
+        info:       $info,
+        danger:     $danger,
+        secondary:  $secondary,
+        dark:       $dark,
+        warning:    $warning
+);
+
+$dark_text_alert_types: (
+        light:      $light
+);
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 3px;
+  -webkit-box-shadow:0px 0px 10px 1px #515151 ;
+  -moz-box-shadow:0px 0px 10px 1px #515151 ;
+  box-shadow:0px 0px 10px 1px #515151 ;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  &:disabled, &.disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+  &-block {
+    display: block;
+    width: 100%;
+  }
+  @each $type, $color in $light_text_alert_types {
+    &-#{$type} {
+      background-color: $color;
+      color: #FFFFFF;
+    }
+  }
+  @each $type, $color in $dark_text_alert_types {
+    &-#{$type} {
+      background-color: $color;
+      color: #353A40;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import './App.scss';
-import {Alert, Container, Row, TextInput} from "./components";
-import {alertTypes} from "./components/Alert/models";
+import {Alert, Col, Container, Row, TextInput, Button} from "./components";
+import {colorVariants} from "./enums/colorVariants";
 
 const App: React.FC = () => {
     const [name, setName] = React.useState('');
@@ -38,10 +38,13 @@ const App: React.FC = () => {
                         isVisible={isAlertVisible}
                         title="This is primary alert title"
                         message="This is primary alert message"
-                        type={alertTypes.danger}
+                        variant={colorVariants.danger}
                         onClose={() => toggleAlertVisibility()}
                     />
                     <h1>Hello, {name}</h1>
+                    <Col size={9} sm={8} md={5} lg={3} xl={12}>
+                        <Button variant={colorVariants.danger} title={"button"}/>
+                    </Col>
                 </Row>
 
             </Container>
