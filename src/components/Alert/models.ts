@@ -1,4 +1,4 @@
-import {colorVariants} from "../../enums/colorVariants";
+import { colorVariants } from "../../enums/colorVariants";
 
 export interface IAlertProps {
     isVisible?: boolean;

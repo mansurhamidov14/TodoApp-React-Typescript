@@ -24,10 +24,11 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <Container>
+                <button onClick={() => setAlertVisibility(true)}>
+                    show alert
+                </button>
                 <Row>
-                    <button onClick={() => setAlertVisibility(true)}>
-                        show alert
-                    </button>
+                    
                     <h1>Hello world</h1>
                     <TextInput
                         type={'text'}
@@ -38,12 +39,12 @@ const App: React.FC = () => {
                         isVisible={isAlertVisible}
                         title="This is primary alert title"
                         message="This is primary alert message"
-                        variant={colorVariants.danger}
+                        variant={colorVariants.warning}
                         onClose={() => toggleAlertVisibility()}
                     />
                     <h1>Hello, {name}</h1>
                     <Col size={9} sm={8} md={5} lg={3} xl={12}>
-                        <Button variant={colorVariants.danger} title={"button"}/>
+                        <Button variant={colorVariants.warning} title={"button"}/>
                     </Col>
                 </Row>
 

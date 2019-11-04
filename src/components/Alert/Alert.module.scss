@@ -6,11 +6,11 @@ $light_text_alert_types: (
         info:       $info,
         danger:     $danger,
         secondary:  $secondary,
+        warning:    $warning,
         dark:       $dark
 );
 
 $dark_text_alert_types: (
-        warning:    $warning,
         light:      $light
 );
 
@@ -47,6 +47,7 @@ $dark_text_alert_types: (
     outline: 0;
     &:active {
       outline: 0;
+      color: #353A40;
     }
   }
 
