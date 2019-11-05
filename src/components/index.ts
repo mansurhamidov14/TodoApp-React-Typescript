@@ -4,4 +4,6 @@ export * from './TextInput';
 export * from './Container';
 export * from './Row';
 export * from './Col';
-export * from './Button'
+export * from './Button';
+export * from './Badge';
+export * from './Text';

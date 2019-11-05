@@ -9,7 +9,7 @@ export const Container = (props: IContainerProps) => {
     } = props;
     
     return (
-        <div className={fluid ? styles.container : styles['container-fluid']}>
+        <div className={!fluid ? styles.container : styles['container-fluid']}>
             {children}
         </div>
     )

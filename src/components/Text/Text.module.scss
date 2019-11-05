@@ -1,0 +1,37 @@
+@import '../../assets/styles/variables.scss';
+
+.text {
+    @for $i from 1 through 4 {
+        &-size-#{$i} {
+            font-size: .5em + $i * 0.25em ;
+        }
+    }
+
+    @each $type, $color in $light_text_bg_types {
+        &-#{$type} {
+            color: $color;
+        }
+    }
+
+    @each $type, $color in $dark_text_bg_types {
+        &-#{$type} {
+            color: $color;
+        }
+    }
+
+    @each $weight in bold, bolder, normal {
+        &-#{$weight} {
+            font-weight: $weight;
+        }
+    }
+    @each $decoration in none, underline, overline, line-through {
+        &-#{$decoration} {
+            text-decoration: $decoration;
+        }
+    }
+    @each $style in normal, italic, olique {
+        &-style-#{$style} {
+            font-style: $style;
+        }
+    }
+}

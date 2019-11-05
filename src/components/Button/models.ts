@@ -1,9 +1,9 @@
-import {colorVariants} from "../../enums/colorVariants";
+import {EViewTypes} from "../../enums/EViewTypes";
 
 export interface IButtonProps {
     block?: boolean;
     disabled?: boolean;
-    variant: colorVariants;
+    variant: EViewTypes;
     title: string;
     onClick?: () => void;
 }

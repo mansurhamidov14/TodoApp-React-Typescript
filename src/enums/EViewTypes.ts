@@ -1,4 +1,4 @@
-export enum colorVariants {
+export enum EViewTypes {
     success = 'success',
     danger = 'danger',
     info = 'info',
