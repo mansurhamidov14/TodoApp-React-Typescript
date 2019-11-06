@@ -67,7 +67,6 @@
         background-color: #CF242C;
       }
     }
-    
     &__main {
       display: block;
       position: absolute;
@@ -90,7 +89,6 @@
       width: 4px;
       left: 15px;
     }
-    
   }
   &__checkbox:checked + &__status {
     background-color: #C6FF50;
