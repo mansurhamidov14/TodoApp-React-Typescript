@@ -2,18 +2,7 @@
 @import "../../assets/styles/mixins.scss";
 
 .bg {
-  @each $type, $color in $light_text_bg_types {
-    &-#{$type} {
-      background-color: $color;
-      color: #FFFFFF;
-    }
-  }
-  @each $type, $color in $dark_text_bg_types {
-    &-#{$type} {
-      background-color: $color;
-      color: #353A40;
-    }
-  }
+  @include applyViewTypes();
 }
 
 @each $align in left, center, right, justify {

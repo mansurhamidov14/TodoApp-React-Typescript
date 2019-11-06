@@ -6,3 +6,5 @@ export * from './Row';
 export * from './Col';
 export * from './Button';
 export * from './Switcher';
+export * from './Badge';
+export * from './Text';

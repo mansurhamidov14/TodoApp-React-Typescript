@@ -1,4 +1,4 @@
-export enum indentionSizes {
+export enum EIndentionSizes {
     X1 = 1,
     X2,
     X3,

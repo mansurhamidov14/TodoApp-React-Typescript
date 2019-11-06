@@ -1,0 +1,16 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/mixins.scss';
+
+.badge {
+    display: inline-block;
+    padding: .4em .6em;
+    font-size: 75%;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .5rem; 
+    
+    @include applyViewTypes(); 
+}
