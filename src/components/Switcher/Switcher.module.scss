@@ -1,0 +1,32 @@
+@import "../../assets/styles/variables";
+
+.switcher {
+  position: relative;
+
+  &__checkbox {
+    display: none;
+  }
+  &__status {
+    display: block;
+    border-radius: 15px;
+    background-color: #ffebf0;
+    padding: 14px;
+    width: 50px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-shadow:0px 0px 6px 0.5px #b6b6b6 inset;
+    -moz-box-shadow:0px 0px 6px 0.5px #b6b6b6 inset;
+    box-shadow:0px 0px 6px 0.5px #b6b6b6 inset;
+
+    &:before {
+      content: ' ';
+      display: block;
+      position: relative;
+      z-index: 2;
+      padding: 16px;
+      background-color: #515151;
+      border-radius: 12px;
+    }
+  }
+}

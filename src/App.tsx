@@ -1,11 +1,13 @@
 import React, {ChangeEvent} from 'react';
 import './App.scss';
-import {Alert, Col, Container, Row, TextInput, Button, Block} from "./components";
+import {Alert, Block, Button, Col, Container, Row, Switcher, TextInput} from "./components";
+
 import {colorVariants} from "./enums/colorVariants";
 import {indentionSizes} from "./enums/indentionSizes";
 
 const App: React.FC = () => {
     const [name, setName] = React.useState('');
+    const [isActive, setSwitcherState] = React.useState(false);
     const [isAlertVisible, setAlertVisibility] = React.useState(false);
 
     const setter = (set: ((value: string) => void)) => (event: ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +18,10 @@ const App: React.FC = () => {
         } = event;
 
         set(value);
+    };
+
+    const toggleSwitcher = () => {
+        setSwitcherState(!isActive)
     };
 
     const toggleAlertVisibility: (() => void) = () => {
@@ -45,11 +51,13 @@ const App: React.FC = () => {
                         </Col>
                         <Col xs={12}>
                             <Block bg={colorVariants.light} paddingVertical={indentionSizes.X6} textAlign="center">
-                                <Button title="Show alert" onClick={() => toggleAlertVisibility()} variant={colorVariants.success}/>
+                                <Button variant={colorVariants.info} title={"INFO BUTTON"}
+                                        onClick={() => toggleAlertVisibility()}/>
                             </Block>
                         </Col>
                         <Col xs={4}>
                             <TextInput onChange={setter(setName)} value={name} type="text" id="name" label="Ad"/>
+                            <Switcher isActive={isActive} onSwitch={() => toggleSwitcher()}/>
                         </Col>
                     </Row>
                 </Container>
