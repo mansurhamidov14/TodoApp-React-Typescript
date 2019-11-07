@@ -1,34 +1,34 @@
 @import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+$tick-color: #2C8907;
+$cross-color: #CF242C;
+$switched-on-background: #C6FF50;
+$switched-off-background: #FFA7A7;
+$disabled-icon-color: #777;
+$disabled-background: #CECECE;
 
 .switcher {
   width: 70px;
-  height: 30px;
+  height: 26px;
+  top: 4px;
   position: relative;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                        supported by Chrome, Opera and Firefox */
+  display: inline-block;
   &__checkbox {
     display: none;
   }
+  
   &__status {
     position: absolute;
     top: 4px;
     left: 10px;
     display: block;
     border-radius: 15px;
-    background-color: #FFA7A7;
+    background-color: $switched-off-background;
     height: 22px;
     width: 50px;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-shadow: inset -8px 14px 5px -1px rgba(0,0,0,0.32);
-    -moz-box-shadow: inset -8px 17px 5px -10px rgba(0,0,0,0.32);
-    box-shadow: inset -8px 16px 3px -15px rgba(0,0,0,0.32);
+    @include boxSizingBorderBox();
+    @include applyBoxShadow(inset -8px 16px 3px -15px rgba(0,0,0,0.32));
     border: 1px inset rgba(0,0,0,0.32);
     &::before {
       display: block;
@@ -39,19 +39,30 @@
     }
     &__on {
       position: absolute;
-      left: 5px;
-      top: 0px;
-      color: #2C8907;
-      font-size: 14px;
-      font-weight: bold;;
+      left: 6px;
+      top: 8.5px;
+      background-color: $tick-color;
+      width: 3px;
+      height: 6px;
+      transform: rotate(-45deg);
       display: block;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
+      &::before {
+        content: ' ';
+        display: block;
+        width: 3px;
+        height: 11px;
+        transform: rotate(95deg);
+        background-color: $tick-color;
+        position: absolute;
+        left: 4px;
+      }
     }
     &__off {
       position: absolute;
       right: 10px;
-      top: 5px;
-      background-color: #CF242C;
+      top: 5.5px;
+      background-color: $cross-color;
       font-weight: bold;
       display: block;
       width: 3px;
@@ -64,7 +75,7 @@
         width: 3px;
         height: 10px;
         position: absolute;
-        background-color: #CF242C;
+        background-color: $cross-color;
       }
     }
     &__main {
@@ -91,11 +102,24 @@
     }
   }
   &__checkbox:checked + &__status {
-    background-color: #C6FF50;
+    background-color: $switched-on-background;
   }
   &__checkbox:checked + &__status &__status__main {
     transform: translateX(24px);
     transition: 0.2s;
+  }
+  &__checkbox:disabled + &__status &__status__main {
+    background-image: linear-gradient(to right, #DDD, #DEDEDE, #DDD);
+  }
+  &__checkbox:disabled + &__status {
+    background-color: $disabled-background;
+    
+  }
+  &__checkbox:disabled + &__status &__status__on, &__checkbox:disabled + &__status &__status__off {
+    background-color: $disabled-icon-color;
+    &::before {
+      background-color: $disabled-icon-color;
+    }
   }
 }
 

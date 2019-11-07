@@ -4,7 +4,7 @@ import './App.scss';
 import {Alert, Col, Container, Row, TextInput, Button, Block, Badge, Text, Switcher} from "./components";
 import {EViewTypes, EIndentionSizes} from "./enums";
 import { ETextSizes } from './enums';
-import { Header } from './app/components/Header';
+// import { Header } from './app/components/Header';
 
 const App: React.FC = () => {
     const [name, setName] = React.useState('');
@@ -31,7 +31,6 @@ const App: React.FC = () => {
 
     return (
         <div className="App">
-            <Header/>
             <Container>
                 <Alert
                     isVisible={isAlertVisible}
@@ -59,7 +58,7 @@ const App: React.FC = () => {
                         </Col>
                         <Col xs={4}>
                             <TextInput onChange={setter(setName)} value={name} type="text" id="name" label="Ad"/>
-                            <Switcher isActive={isActive} onSwitch={() => toggleSwitcher()}/>
+                            <Switcher isChecked={isActive} onSwitch={toggleSwitcher}/> sad adas das
                         </Col>
                         <Col xs={4}>
                             <Badge variant={EViewTypes.danger} text="5"/>
