@@ -1,15 +1,16 @@
 import React, {ChangeEvent} from 'react';
 import './App.scss';
 
-import {Alert, Col, Container, Row, TextInput, Button, Block, Badge, Text, Switcher} from "./components";
-import {EViewTypes, EIndentionSizes} from "./enums";
-import { ETextSizes } from './enums';
+import {Alert, Col, Container, Row, TextInput, Button, Block, Badge, Text, Switcher, RadioButton} from "./components";
+import {EViewTypes, EIndentionSizes, ERadioViewTypes, ETextSizes} from "./enums";
+import {  } from './enums/ERadioViewTypes';
 // import { Header } from './app/components/Header';
 
 const App: React.FC = () => {
     const [name, setName] = React.useState('');
     const [isActive, setSwitcherState] = React.useState(false);
     const [isAlertVisible, setAlertVisibility] = React.useState(false);
+    const [language, setLanguage] = React.useState('az');
 
     const setter = (set: ((value: string) => void)) => (event: ChangeEvent<HTMLInputElement>) => {
         const {
@@ -28,6 +29,7 @@ const App: React.FC = () => {
     const toggleAlertVisibility: (() => void) = () => {
         setAlertVisibility(!isAlertVisible)
     };
+
 
     return (
         <div className="App">
@@ -58,7 +60,18 @@ const App: React.FC = () => {
                         </Col>
                         <Col xs={4}>
                             <TextInput onChange={setter(setName)} value={name} type="text" id="name" label="Ad"/>
-                            <Switcher isChecked={isActive} onSwitch={toggleSwitcher}/> sad adas das
+                            <Switcher isChecked={isActive} onSwitch={toggleSwitcher}/> 
+                            <RadioButton 
+                                onCheck={() => setLanguage("az")}
+                                viewType={ERadioViewTypes.success} 
+                                checked={language === "az"}
+                            />
+                            <RadioButton 
+                                onCheck={() => setLanguage("ru")} 
+                                viewType={ERadioViewTypes.primary}
+                                checked={language === "ru"}
+                            />
+                            
                         </Col>
                         <Col xs={4}>
                             <Badge variant={EViewTypes.danger} text="5"/>

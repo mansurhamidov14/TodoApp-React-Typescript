@@ -1,11 +1,9 @@
-export enum EViewTypes {
+export enum ERadioViewTypes {
     success = 'success',
     danger = 'danger',
     info = 'info',
     primary = 'primary',
     warning = 'warning',
-    light = 'light',
     dark = 'dark',
-    white = 'white',
     secondary = 'secondary'
 }

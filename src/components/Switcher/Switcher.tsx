@@ -1,13 +1,6 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import styles from './Switcher.module.scss';
-
-interface ISwithcerProps {
-    isChecked: boolean;
-    isDisabled?: boolean;
-    id?: string;
-    name?: string;
-    onSwitch: (event?: ChangeEvent<HTMLInputElement>) => void;
-}
+import { ISwithcerProps } from './models';
 
 export const Switcher: React.FC<ISwithcerProps> = ({ isChecked, onSwitch, isDisabled, id, name }) => {
     return (

@@ -1,0 +1,54 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/mixins.scss';
+
+$radio_size: 22px;
+$radio_inner_size: 12px;
+
+.radio {
+    display: inline-block;
+    cursor: pointer;
+    padding: 2px;
+    &__input {
+        cursor: pointer;
+        border-radius: 50%;
+        width: $radio_size;
+        height: $radio_size;
+        position: relative;
+        background-color: $white;
+        display: block;
+        @each $type, $color in $light_text_bg_types {
+            &-#{$type} {
+              border: 1px solid $color;
+              background: transparentize($color, 0.9);
+              &::before {
+                border: 1px solid $color;
+              }
+            }
+        }
+        &::before {
+            content: ' ';
+            background-color: white;
+            position: absolute;
+            display: block;
+            width: $radio_inner_size;
+            height: $radio_inner_size;
+            left: ($radio_size - $radio_inner_size) / 2;
+            top: ($radio_size - $radio_inner_size) / 2;
+            @include boxSizingBorderBox();
+            border-radius: 50%;
+        }
+    }
+    &__button {
+        display: none;
+        &:disabled + .radio__input {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    }
+    @each $type, $color in $light_text_bg_types {
+        &__button:checked + &__input-#{$type}::before {
+            background-color: $color;
+            transition: 0.3s;
+        }
+    }
+}

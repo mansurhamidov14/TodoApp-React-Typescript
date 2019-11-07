@@ -103,6 +103,7 @@ $disabled-background: #CECECE;
   }
   &__checkbox:checked + &__status {
     background-color: $switched-on-background;
+    transition: 0.4s;
   }
   &__checkbox:checked + &__status &__status__main {
     transform: translateX(24px);
