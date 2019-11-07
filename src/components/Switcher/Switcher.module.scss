@@ -14,12 +14,14 @@ $disabled-background: #CECECE;
   top: 4px;
   position: relative;
   display: inline-block;
+  cursor: pointer;
   &__checkbox {
     display: none;
   }
   
   &__status {
     position: absolute;
+    cursor: pointer;
     top: 4px;
     left: 10px;
     display: block;
