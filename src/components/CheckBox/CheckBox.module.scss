@@ -1,0 +1,86 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/mixins.scss';
+
+$checkbox_size: 22px;
+$checkbox_inner_size: 12px;
+
+.checkbox {
+    display: inline-block;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 2px;
+    input {
+        display: none;
+        &:checked {
+            transition: 0.4s;
+        }
+        @each $type, $color in $light_text_bg_types {
+            &:checked + .checkbox__input-#{$type} {
+              border: 1px solid $color;
+              border-radius: 4px;
+              background: $color;
+              
+            }
+        }
+        &:disabled + .checkbox__input {
+            cursor: not-allowed;
+        }
+        @each $type, $color in $light_text_bg_types {
+            &:disabled + .checkbox__input-#{$type} {
+              border: 1px solid $color;
+              border-radius: 4px;
+              background: transparentize($color, .6);
+
+              
+            }
+            
+        }
+    }
+    &__label {
+        cursor: pointer;
+        position: relative;
+        bottom: 6px;
+        padding-left: 5px;
+        padding-right: 5px;
+        @include noSelect();
+    }
+    &__input {
+        cursor: pointer;
+        width: $checkbox_size;
+        height: $checkbox_size;
+        position: relative;
+        background-color: $white;
+        display: inline-block;
+        @each $type, $color in $light_text_bg_types {
+            &-#{$type} {
+              border: 1px solid $color;
+              border-radius: 4px;
+              & + .checkbox__label {
+                  color: $color;
+              }
+            }
+        }
+        &::before {
+            content: ' ';
+            background-color: $white;
+            left: 5px;
+            top: 9px;
+            position: absolute;
+            display: block;
+            width: 2px;
+            height: 7px;
+            transform: rotate(-45deg);
+        }
+        &::after {
+            content: ' ';
+            position: absolute;
+            background-color: $white;
+            display: block;
+            width: 2px;
+            height: 14px;
+            left: 12px;
+            top: 4px;
+            transform: rotate(47deg);
+        }
+    }
+}

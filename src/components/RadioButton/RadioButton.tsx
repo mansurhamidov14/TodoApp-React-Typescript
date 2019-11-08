@@ -8,7 +8,7 @@ interface IRadioButtonProps {
     id?: string;
     viewType: ERadioViewTypes;
     disabled?: boolean;
-    label: string;
+    label?: string;
 }
 
 export const RadioButton: React.FC<IRadioButtonProps> = ({
@@ -31,7 +31,7 @@ export const RadioButton: React.FC<IRadioButtonProps> = ({
                     className={styles.radio__button}
                 />
                 <span className={[styles[`radio__input`], styles[`radio__input-${viewType}`]].join(" ")}/>
-                <span className={styles.radio__label}>{label}</span>
+                {label && <span className={styles.radio__label}>{label}</span>}
             </label>
         </div>
     )

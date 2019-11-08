@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import './App.scss';
 
-import {Alert, Col, Container, Row, TextInput, Button, Block, Badge, Text, Switcher, RadioButton} from "./components";
+import {Alert, Col, Container, Row, TextInput, Button, Block, Badge, Text, Switcher, RadioButton, CheckBox} from "./components";
 import {EViewTypes, EIndentionSizes, ERadioViewTypes, ETextSizes} from "./enums";
 import {  } from './enums/ERadioViewTypes';
 // import { Header } from './app/components/Header';
@@ -30,6 +30,8 @@ const App: React.FC = () => {
         setAlertVisibility(!isAlertVisible)
     };
 
+    const [tested, setTested] = React.useState(true);
+    const switchTested = () => setTested(!tested);
 
     return (
         <div className="App">
@@ -81,6 +83,7 @@ const App: React.FC = () => {
                                 size={ETextSizes.MD} 
                                 variant={EViewTypes.danger}
                                 >asdasdasd</Text>
+                            <CheckBox checked={tested} viewType={EViewTypes.info} onCheck={switchTested} label="It was tested"/>
                         </Col>
                     </Row>
                 </Container>

@@ -9,3 +9,4 @@ export * from './Switcher';
 export * from './Badge';
 export * from './Text';
 export * from './RadioButton';
+export * from './CheckBox';
