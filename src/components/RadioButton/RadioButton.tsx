@@ -8,6 +8,7 @@ interface IRadioButtonProps {
     id?: string;
     viewType: ERadioViewTypes;
     disabled?: boolean;
+    label: string;
 }
 
 export const RadioButton: React.FC<IRadioButtonProps> = ({
@@ -16,6 +17,7 @@ export const RadioButton: React.FC<IRadioButtonProps> = ({
     id,
     viewType,
     disabled,
+    label,
 }) => {
     return (
         <div className={styles.radio}>
@@ -29,6 +31,7 @@ export const RadioButton: React.FC<IRadioButtonProps> = ({
                     className={styles.radio__button}
                 />
                 <span className={[styles[`radio__input`], styles[`radio__input-${viewType}`]].join(" ")}/>
+                <span className={styles.radio__label}>{label}</span>
             </label>
         </div>
     )

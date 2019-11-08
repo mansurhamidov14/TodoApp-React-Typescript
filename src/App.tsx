@@ -65,11 +65,13 @@ const App: React.FC = () => {
                                 onCheck={() => setLanguage("az")}
                                 viewType={ERadioViewTypes.success} 
                                 checked={language === "az"}
+                                label="Azerbaijani"
                             />
-                            <RadioButton 
-                                onCheck={() => setLanguage("ru")} 
+                            <RadioButton
+                                onCheck={() => setLanguage("ru")}
                                 viewType={ERadioViewTypes.primary}
                                 checked={language === "ru"}
+                                label="Russian"
                             />
                             
                         </Col>
