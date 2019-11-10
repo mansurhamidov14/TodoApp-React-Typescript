@@ -1,15 +1,6 @@
 import React from 'react';
-import { EViewTypes } from '../../enums';
 import styles from './CheckBox.module.scss';
-
-interface ICheckBoxProps {
-    checked: boolean;
-    onCheck?: () => void;
-    label?: string;
-    viewType: EViewTypes;
-    disabled?: boolean;
-    id?: string;
-}
+import { ICheckBoxProps } from './models';
 
 export const CheckBox: React.FC<ICheckBoxProps> = ({
     checked,
@@ -24,7 +15,7 @@ export const CheckBox: React.FC<ICheckBoxProps> = ({
             <label htmlFor={id}>
                 <input type="checkbox" id={id} onChange={onCheck} disabled={disabled} checked={checked}/>
                 <span className={[styles.checkbox__input, styles[`checkbox__input-${viewType}`]].join(" ")} />
-                { label && <span className={styles.checkbox__label}>{label}</span>}
+                { label && <span className={styles.checkbox__label} style={disabled ? {cursor: 'not-allowed'} : undefined}>{label}</span>}
             </label>
         </div>
     )

@@ -1,15 +1,6 @@
 import React from 'react';
-import { ERadioViewTypes } from '../../enums';
 import styles from './RadioButton.module.scss';
-
-interface IRadioButtonProps {
-    checked: boolean;
-    onCheck: () => void;
-    id?: string;
-    viewType: ERadioViewTypes;
-    disabled?: boolean;
-    label?: string;
-}
+import { IRadioButtonProps } from './models';
 
 export const RadioButton: React.FC<IRadioButtonProps> = ({
     checked,
@@ -31,7 +22,7 @@ export const RadioButton: React.FC<IRadioButtonProps> = ({
                     className={styles.radio__button}
                 />
                 <span className={[styles[`radio__input`], styles[`radio__input-${viewType}`]].join(" ")}/>
-                {label && <span className={styles.radio__label}>{label}</span>}
+                {label && <span className={styles.radio__label} style={disabled ? {cursor: 'not-allowed'} : undefined}>{label}</span>}
             </label>
         </div>
     )
